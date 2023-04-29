@@ -37,6 +37,7 @@ int main(void) {
   if (database == NULL)
     printf("Errore! Impossibile aprire il file !\n");
   else {
+     
     for (fscanf(database, "%c", &carattere), numero_caratteri = 1; (carattere != EOF); fscanf(database, "%c", &carattere), numero_caratteri++);
     accesso.testo = (struct s_matching *)calloc(numero_caratteri, sizeof(struct s_matching));
     for (int contatore = 0, fscanf(database, "%c", &accesso.testo[contatore]); (contatore <= numero_caratteri); fscanf(database, "%c", &accesso.testo[contatore]), contatore++);
@@ -53,8 +54,9 @@ int main(void) {
       accesso.pattern = (struct s_matching *)calloc(lunghezza, sizeof(struct s_matching));
       printf("Inserisci Pattern \n");
       scanf("%s", accesso.pattern);
-      
+       
       errore = lunghezza < 1;
+       
       if (scelta = citta)
         accesso.pattern[0] = toupper(accesso.pattern[0]);
       else
