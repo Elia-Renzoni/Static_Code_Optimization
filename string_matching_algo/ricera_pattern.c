@@ -50,7 +50,7 @@ int main(void) {
       
       printf("Lunghezza Pattern > \n");
       scanf("%d", &lunghezza);
-      accesso.pattern = (struct s_matching *)calloc(lunghezza, sizeof(struct s_matching));
+      accesso.pattern = (char *)calloc(lunghezza, sizeof(char));
       printf("Inserisci Pattern \n");
       scanf("%s", accesso.pattern);
       
