@@ -27,9 +27,15 @@ int main(void) {
   if (database == NULL)
     printf("Errore! Impossibile aprire il file !\n");
   else {
-    for (caratteri_rest = fscanf(database, "%c", &carattere), numero_caratteri = 1; (caratteri_rest  != EOF); caratteri_rest = fscanf(database, "%c", &carattere), numero_caratteri++);
+    
+    for (caratteri_rest = fscanf(database, "%c", &carattere), numero_caratteri = 1; 
+              (caratteri_rest  != EOF); 
+        caratteri_rest = fscanf(database, "%c", &carattere), numero_caratteri++);
+
     accesso.testo = (char *)calloc(numero_caratteri, sizeof(char));
-    for (contatore = 0, fscanf(database, "%c", &accesso.testo[contatore]); (contatore < numero_caratteri); fscanf(database, "%c", &accesso.testo[contatore]), contatore++);
+
+    for (contatore = 0; (contatore < numero_caratteri); contatore++)
+      fscanf(database, "%c", &accesso.testo[contatore]);
 
     printf("Database Aziendale - Reparto Vendite > \n");
 
@@ -68,14 +74,7 @@ int main(void) {
 void rabin_karp_matcher(int l_testo, int l_pattern) {
 
   struct s_matching accesso;
-  int               cnt_i, 
-                    cnt_j, 
-                    base_valori = l_testo,
-                    valore_massimo_testo = 1,
-                    p = 0,
-                    t = 0,
-                    nprimo = 13,
-                    contatore = 0;
+  int               cnt_i, cnt_j, base_valori = l_testo, valore_massimo_testo = 1, p = 0, t = 0, nprimo = 13, contatore = 0;
 
   /* preelaborazione */
   for (cnt_i = 0; (cnt_i < l_testo - 1); cnt_i++)                         
@@ -98,4 +97,11 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
     if (cnt_i < l_pattern - l_testo)
       t = (base_valori * (t - accesso.testo[cnt_i] * valore_massimo_testo) + accesso.testo[cnt_i + l_testo]) % nprimo;
   }
+
+  if (contatore == 0)
+    printf("Pattern Non Trovato !");
+  else 
+    printf("Pattern Trovato %d volte !", contatore);
+
+
 }
