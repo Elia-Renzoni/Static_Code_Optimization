@@ -20,14 +20,14 @@ int main(void) {
 
   struct s_matching accesso;
   FILE             *database;
-  int               numero_caratteri, errore, lunghezza_pattern, contatore;
+  int               numero_caratteri, errore, lunghezza_pattern, contatore, caratteri_rest;
   char              carattere;
 
   database = fopen("database_aziendale.txt", "r");
   if (database == NULL)
     printf("Errore! Impossibile aprire il file !\n");
   else {
-    for (fscanf(database, "%c", &carattere), numero_caratteri = 1; (carattere != EOF); fscanf(database, "%c", &carattere), numero_caratteri++);
+    for (caratteri_rest = fscanf(database, "%c", &carattere), numero_caratteri = 1; (caratteri_rest  != EOF); caratteri_rest = fscanf(database, "%c", &carattere), numero_caratteri++);
     accesso.testo = (char *)calloc(numero_caratteri, sizeof(char));
     for (contatore = 0, fscanf(database, "%c", &accesso.testo[contatore]); (contatore < numero_caratteri); fscanf(database, "%c", &accesso.testo[contatore]), contatore++);
 
