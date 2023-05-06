@@ -4,7 +4,7 @@
 >* Problem : Static Code Optimization, using Assembly, of a String Matching Algorithm. 
 >* University Project - Computer Architecture - Universitá Degli Studi di Urbino Carlo Bó - Applied Computer Science
 
-## KMP - String Matcher > 
+## Rabin-Karp Algorithm > 
 * Pseudo-Code : 
 * C implementation : 
 * Complexity : 
