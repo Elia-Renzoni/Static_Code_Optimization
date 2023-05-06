@@ -14,16 +14,16 @@ struct s_matching {
   char *testo, *pattern;
 };
 
-void rabin_karp_matcher(struct s_matching *, struct s_matching *, int, int);
+void rabin_karp_matcher(int, int);
 
 int main(void) {
 
   struct s_matching accesso;
   FILE             *database;
-  int               numero_caratteri, errore, lunghezza, contatore;
+  int               numero_caratteri, errore, lunghezza_pattern, contatore;
   char              carattere;
 
-  database = fopen("database_aziendale", "r");
+  database = fopen("database_aziendale.txt", "r");
   if (database == NULL)
     printf("Errore! Impossibile aprire il file !\n");
   else {
@@ -35,13 +35,13 @@ int main(void) {
 
     do {
       printf("Lunghezza Pattern > \n");
-      scanf("%d", &lunghezza);
-      accesso.pattern = (char *)calloc(lunghezza, sizeof(char));
+      scanf("%d", &lunghezza_pattern);
+      accesso.pattern = (char *)calloc(lunghezza_pattern, sizeof(char));
       printf("Inserisci Pattern - carattere per carattere \n");
       for (contatore = 0; (contatore < lunghezza_pattern); contatore++)
         scanf("%c", accesso.pattern[contatore]);
 
-      errore = lunghezza < 1;
+      errore = lunghezza_pattern < 1;
       if (errore) {
         printf("Errore, ripeti l'azione! \n");
         free(accesso.pattern);
@@ -50,11 +50,11 @@ int main(void) {
     }
     while (errore);
 
-    rabin_karp_matcher(accesso.testo, accesso.pattern);
+    rabin_karp_matcher(numero_caratteri, lunghezza_pattern);
 
     fclose(database);
     free(accesso.testo);
-    free(accesso.Pattern);
+    free(accesso.pattern);
 
   }
 
@@ -92,7 +92,7 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
           contatore++;
         else {
           cnt_j = l_testo;
-          cnt_i = l_pattern + l_testp;
+          cnt_i = l_pattern + l_testo;
         }
     }
     if (cnt_i < l_pattern - l_testo)
