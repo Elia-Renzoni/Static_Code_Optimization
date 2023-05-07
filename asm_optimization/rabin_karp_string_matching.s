@@ -1,4 +1,4 @@
-; Implementazione in Assembly dell'algoritmo di String Matching Rabin - Karp
+; Implementazione in MIPS Assembly dell'algoritmo di String Matching Rabin - Karp
 ; @authors Elia Renzoni, Alessio Visentino e Alessio Biagioli
 ; @data 07/05/2023
 ; @copyright 2023
