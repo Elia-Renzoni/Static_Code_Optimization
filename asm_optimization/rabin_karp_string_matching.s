@@ -15,8 +15,8 @@ base_valori:             .word 12                                               
 valore_massimo_testo:    .word 1
 contatore_i:             .word 0
 contatore_j:             .word 0
-p                        .word 0
-t                        .word 0
+p:                       .word 0
+t:                       .word 0
 
 
               .text
