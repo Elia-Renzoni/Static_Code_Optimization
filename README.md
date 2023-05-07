@@ -5,8 +5,8 @@
 >* University Project - Computer Architecture - Universitá Degli Studi di Urbino Carlo Bó - Applied Computer Science
 
 ## Rabin-Karp Algorithm > 
-* Pseudo-Code : 
 * C implementation : 
+
 * Complexity : 
 
 ## Assembly Optimization > 
