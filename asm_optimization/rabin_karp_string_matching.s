@@ -10,8 +10,8 @@ testo:                   .string 'a', 'b', 'a', 'c', 'a', 'b', 'b', 'c', 'a', 'b
 pattern:                 .string 'c', 'a', 'b'                                                        ; pattern
 dimensione_testo:        .word 12
 dimensione_pattern:      .word  3
-numero_primo             .word 13
-base_valori              .word 12                                                                     ; stesso valore della dimensione del testo
+numero_primo:            .word 13
+base_valori:             .word 12                                                                     ; stesso valore della dimensione del testo
 
 
               .text
