@@ -33,11 +33,11 @@ start:
 
 ; preelaborazione
 loop:
-    MUL r5, r5, r4
-    ; TODO => istruzione di modulo
+    MULT r5, r5, r4
+    DIV r5, r5, r3
+    MFHI r5
     DADDI r7, r7, 1
-    BNE r7, r1, loop                      ; if contatore != dimensione_testo - 1
-    
+    BNE r7, r1, loop             ; if r7 != r1 then loop else break;
 loop:
 
 ; matching
