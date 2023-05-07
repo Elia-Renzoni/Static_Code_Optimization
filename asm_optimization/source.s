@@ -1,5 +1,10 @@
 ; Implementazione in Assembly dell'algoritmo di String Matching Rabin - Karp
 ; @authors Elia Renzoni, Alessio Visentino e Alessio Biagioli
+; @data 07/05/2023
+; @copyright 2023
+
+
+
               .data
 testo:                   .string 'a', 'b', 'a', 'c', 'a', 'b', 'b', 'c'
 pattern:                 .string 'c', 'a', 'b'
@@ -17,3 +22,10 @@ occorrenze:              .word  0
               .text
 start:
     loop: 
+    
+    
+    
+    
+    
+end:
+    HALT
