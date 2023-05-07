@@ -12,28 +12,36 @@ dimensione_testo:        .word 12
 dimensione_pattern:      .word  3
 numero_primo:            .word 13
 base_valori:             .word 12                                                                     ; stesso valore della dimensione del testo
+valore_massimo_testo     .word 1
+contatore_i              .word 0
+contatore_j              .word 0
 
 
               .text
 start:
-      LW  r3, dimensione_testo(r0)                            ; caricamento in memoria dei valori
-      LW  r4, dimensione_pattern(r0)
-      LW  r5, numero_primo(r0)
-      LW  r6, base_valori(r0)
-      DADDI r7, r0, testo                                     ; puntatore primo elemento dell'array - testo - 
-      DADDI r8, r0, pattern                                   ; puntatore primo elemento dell'array - pattern - 
+      LW  r1, dimensione_testo(r0)                            ; caricamento in memoria dei valori
+      LW  r2, dimensione_pattern(r0)
+      LW  r3, numero_primo(r0)
+      LW  r4, base_valori(r0)
+      LW  r5, valore_massimo_testo(r0)
+      LW  r6, contatore_i(r0)
+      LW  r7, contatore_j(r0)
+      DADDI r8, r0, testo                                     ; puntatore primo elemento dell'array - testo - 
+      DADDI r9, r0, pattern                                   ; puntatore primo elemento dell'array - pattern - 
 
 ; TODO => riempimento dei loop, l'ordine delle istruzioni deve essere pensato senza avere in mente possibili ottimizzazzioni, in termini di instruction reordering. 
 
 ; preelaborazione
 loop:
+    MUL r5, r5, r4
+    ; TODO => istruzione di modulo
+    DADDI r7, r7, 1
+    BNE r7, r1, loop                      ; if contatore != dimensione_testo - 1
     
-      
 loop:
 
 ; matching
 loop:
-; ALLERT => vi e' un loop annidato
 
 end:
     HALT
