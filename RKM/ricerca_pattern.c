@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_VALORI 12
+
 struct s_matching {
   char *testo, *pattern;
 };
@@ -101,7 +103,7 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
   if (contatore == 0)
     printf("Pattern Non Trovato !");
   else 
-    printf("Pattern Trovato %d volte !", contatore);
+    printf("Pattern Trovato %d volte !", (double) contatore / MAX_VALORI);
 
 
 }
