@@ -12,9 +12,9 @@ dimensione_testo:        .word 12
 dimensione_pattern:      .word  3
 numero_primo:            .word 13
 base_valori:             .word 12                                                                     ; stesso valore della dimensione del testo
-valore_massimo_testo     .word 1
-contatore_i              .word 0
-contatore_j              .word 0
+valore_massimo_testo:    .word 1
+contatore_i:             .word 0
+contatore_j:             .word 0
 
 
               .text
