@@ -57,8 +57,8 @@ loop:
     DADDI r8, r8, 8
     DADDI r9, r9, 8
     DADDI r6, r6, 1
-    BNE r6, r1, loop            ; if r6 != r1 then loop else break
-    
+    BNE r6, r1, loop             ; if r6 != r1 then loop else break
+      
     
 ; matching
 loop:
