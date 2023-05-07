@@ -6,8 +6,8 @@
 
 
               .data
-testo:                   .string 'a', 'b', 'a', 'c', 'a', 'b', 'b', 'c'
-pattern:                 .string 'c', 'a', 'b'
+testo:                   .string 'a', 'b', 'a', 'c', 'a', 'b', 'b', 'c'            ; testo 
+pattern:                 .string 'c', 'a', 'b'                                     ; pattern
 numero_caratteri_testo:  .word  8
 numero_carrateri_patt:   .word  3
 contatore_i:             .word  0
