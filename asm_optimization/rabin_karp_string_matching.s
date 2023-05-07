@@ -16,9 +16,7 @@ base_valori:             .word 12                                               
 
               .text
 start:
-      L.S r1, testo(r0)                                       ; caricamento dei dati in memoria
-      L.S r2, pattern(r0)
-      LW  r3, dimensione_testo(r0)
+      LW  r3, dimensione_testo(r0)                            ; caricamento in memoria dei valori
       LW  r4, dimensione_pattern(r0)
       LW  r5, numero_primo(r0)
       LW  r6, base_valori(r0)
