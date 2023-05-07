@@ -23,17 +23,16 @@ start:
       DADDI r7, r0, testo                                     ; puntatore primo elemento dell'array - testo - 
       DADDI r8, r0, pattern                                   ; puntatore primo elemento dell'array - pattern - 
 
+; TODO => riempimento dei loop. 
 loop:
 
 
+loop:
+
 
 loop:
 
 
-
-loop:
-    
-    
 end:
     HALT
 
