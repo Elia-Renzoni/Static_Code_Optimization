@@ -24,14 +24,16 @@ start:
       DADDI r8, r0, pattern                                   ; puntatore primo elemento dell'array - pattern - 
 
 ; TODO => riempimento dei loop, l'ordine delle istruzioni deve essere pensato senza avere in mente possibili ottimizzazzioni, in termini di instruction reordering. 
+
+; preelaborazione
+loop:
+    
+      
 loop:
 
-
+; matching
 loop:
-
-
-loop:
-
+; ALLERT => vi e' un loop annidato
 
 end:
     HALT
