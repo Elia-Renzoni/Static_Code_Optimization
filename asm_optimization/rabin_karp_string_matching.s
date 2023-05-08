@@ -63,13 +63,11 @@ loop:
 ADD r12, r1, r2
 ADD r6, r6, -r6                 ; da rivedere
 loop1:
-
+    BE r8, r9, loop2
     loop2:
     
     
-    
-    
-    
+    BNE r7, r1, loop2
     BNE r6, r12, loop1
 end:
     HALT
