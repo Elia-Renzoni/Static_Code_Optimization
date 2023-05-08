@@ -60,11 +60,17 @@ loop:
     BNE r6, r1, loop             ; if r6 != r1 then loop else break
       
     
-; matching
-loop:
+ADD r12, r1, r2
+ADD r6, r6, -r6                 ; da rivedere
+loop1:
 
-    loop:
-
+    loop2:
+    
+    
+    
+    
+    
+    BNE r6, r12, loop1
 end:
     HALT
 
