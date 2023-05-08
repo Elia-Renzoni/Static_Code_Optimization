@@ -59,7 +59,8 @@ loop:
     DADDI r6, r6, 1
     BNE r6, r1, loop             ; if r6 != r1 then loop else break
       
-    
+
+; matching
 ADD r12, r1, r2
 ADD r6, r6, -r6                 ; da rivedere
 loop1:
