@@ -1,6 +1,5 @@
 # Static Optimization
->* Author : Elia Renzoni
->* Author : Alessio Visentino
+>* Authors : Elia Renzoni - Alessio Vinsentino - Alessio Biagioli
 >* Problem : Static Code Optimization, using Assembly, of a String Matching Algorithm. 
 >* University Project - Computer Architecture - Universitá Degli Studi di Urbino Carlo Bó - Applied Computer Science
 
