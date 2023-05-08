@@ -21,5 +21,5 @@ start:
 
 
 
-end
+end:
   HALT
