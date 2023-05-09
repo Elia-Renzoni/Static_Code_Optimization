@@ -95,14 +95,17 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
           cnt_j = l_testo;
         }
     }
-    if (cnt_i < l_pattern - l_testo)
+    if (cnt_i < l_pattern - l_testo) {
       t = (base_valori * (t - accesso.testo[cnt_i] * valore_massimo_testo) + accesso.testo[cnt_i + l_testo]) % nprimo;
+      if (t < 0)
+        t += q;
+    }
   }
 
   if (contatore == 0)
     printf("Pattern Non Trovato !");
   else 
-    printf("Pattern Trovato %d volte !", (double) contatore / MAX_VALORI);
-
+    printf("Pattern Trovato %d volte !", contatore);
 
 }
+
