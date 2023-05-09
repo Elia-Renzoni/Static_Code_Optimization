@@ -4,8 +4,7 @@
 >* University Project - Computer Architecture - Universitá Degli Studi di Urbino Carlo Bó - Applied Computer Science
 
 ## Rabin-Karp Algorithm > 
-* Pseudocode : 
-![](https://www2.hawaii.edu/~suthers/courses/ics311f20/Notes/Topic-23/code-Rabin-Karp-matcher.jpg)
+* Pseudocode : ![](https://www2.hawaii.edu/~suthers/courses/ics311f20/Notes/Topic-23/code-Rabin-Karp-matcher.jpg)
 
 * C implementation : 
 ```C
