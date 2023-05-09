@@ -47,7 +47,10 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
 }
 
 ```
-
 * Complexity : 
 
-## Assembly Optimization > 
+## MIPS Assembly Implementation > 
+
+
+## Optimization > 
+
