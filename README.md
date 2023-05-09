@@ -52,5 +52,5 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
 ## MIPS Assembly Implementation > 
 
 
-## Optimization > 
+## Static Optimization > 
 
