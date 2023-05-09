@@ -93,7 +93,6 @@ void rabin_karp_matcher(int l_testo, int l_pattern) {
           contatore++;
         else {
           cnt_j = l_testo;
-          cnt_i = l_pattern + l_testo;
         }
     }
     if (cnt_i < l_pattern - l_testo)
