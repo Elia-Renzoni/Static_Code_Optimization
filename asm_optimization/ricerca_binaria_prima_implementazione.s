@@ -4,7 +4,7 @@
 ; @brief Implementazione in MIPS Assembly dell'algoritmo di ricerca dicotomica per array giá ordinati
 
 
-; TODO => Condizione del FOR 
+; TODO => Condizione del FOR - for (espr; indice_sx <= indice_dx && password[indice_mx] != codice_utente; espr);
                 .data    
 password: .word 12, 34, 56, 78, 123, 456, 678
 nuovo_codice_utente: .word 56
