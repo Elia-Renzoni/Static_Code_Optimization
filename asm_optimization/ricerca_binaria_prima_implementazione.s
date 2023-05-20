@@ -32,6 +32,7 @@ loop:
   ddiv r5, r3, 2
   ; condizione loop
  
+
  esito_ricerca:
  slt r8, r5, r7
  bnez r8, codice_trovato
