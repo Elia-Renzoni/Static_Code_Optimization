@@ -34,14 +34,15 @@ loop:
  
  esito_ricerca:
  slt r8, r5, r7
- bnez r8, risultato_trovato
- risultato_trovato:
- dadd r4, r0, 1
- sw r4, esito_ricerca(r4)
-  
+ bnez r8, codice_trovato
+ codice_trovato:
+ sw r4, 0(r3)
+ codice_non_trovato:
+ sw r4, 0(r4)
+ 
 spazio_ricerca_sinistra:            ; continua la ricerca nel sottoarray di sx.
-  dsub r2, r5, 1
+  dsub r2, r3, 1
 spazio_ricerca_destra:              ; continua la ricerca nel sottoarray di dx.
-  dadd r2, r5, 1
+  dadd r2, r3, 1
 end:
   halt
