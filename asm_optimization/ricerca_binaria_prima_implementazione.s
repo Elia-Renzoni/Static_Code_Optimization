@@ -18,14 +18,16 @@ start:
     lw r2, indice_dx(r0)
     lw r3, indice_mx(r0)
     lw r4, esito_ricerca(r0)
+    lw r5, nuovo_codice_utente(r0)
     daddi r5, r3, password
-    daddi r6, r0, nuovo_codice_utente
 func_ricerca_binaria:
-dadd r7, r1, r2                       ; inizializzazione del contatore indice_mx
+dadd r6, r1, r2                       ; inizializzazione del contatore indice_mx
 ddiv r3, r7, 2
-loop_scorri_elementi_array:
-  lw r8, 0(r5)
+loop:
+  lw r7, 0(r5)
   controllo_spostamento:              ; imposto la condizione del ciclo annidato : indice_sx <= indice_dx &&  password[mx] != nuovo_codice_utente
+  bne r7, r5, controllo_espressione
+  controllo_espressione:
   
   
   spazio_ricerca_destra:
