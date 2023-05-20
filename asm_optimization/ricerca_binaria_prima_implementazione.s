@@ -8,7 +8,7 @@
 password: .word 12, 34, 56, 78, 123, 456, 678
 nuovo_codice_utente: .word 56
 indice_sx: .word 0
-indice_dx: .word 7
+indice_dx: .word 6
 indice_mx: .word 0
 esito_ricerca: .word 0
 
@@ -20,6 +20,11 @@ start:
     lw r4, esito_ricerca(r0)
     daddi r5, r0, password
     daddi r6, r0, nuovo_codice_utente
-    
 func_ricerca_binaria:
+; inizializzazione dei contatori - indice di mezzo
+dadd r7, r1, r2
+ddiv r3, r7, 2
+loop_scorri_elementi_array:
   
+end:
+  halt
