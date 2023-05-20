@@ -3,6 +3,8 @@
 ; Progetto per la Sessione Estiva di Architettura degli Elaboratori
 ; @brief Implementazione in MIPS Assembly dell'algoritmo di ricerca dicotomica per array giá ordinati
 
+
+; TODO => Condizione del FOR 
                 .data    
 password: .word 12, 34, 56, 78, 123, 456, 678
 nuovo_codice_utente: .word 56
@@ -32,7 +34,6 @@ loop:
   ddiv r5, r3, 2
   ; condizione loop
  
-
  esito_ricerca:
  slt r8, r5, r7
  bnez r8, codice_trovato
