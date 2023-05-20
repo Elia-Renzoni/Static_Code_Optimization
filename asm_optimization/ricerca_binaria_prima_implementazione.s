@@ -26,10 +26,8 @@ loop:
   bne r1, r2, ricerca                 ; if r1 <= r2 then label
   ricerca:
   slt r8, r5, r7                      ; if nuovo_codice_utente < password[indice_mx]
-  bne r8, r0, spazio_ricerca_destra
-  beq r8, r0, spazio_ricerca_sinistra
-  
-  
+  bne r8, r0, spazio_ricerca_sinistra
+  beq r8, r0, spazio_ricerca_destra
   spazio_ricerca_destra:
   
   spazio_ricerca_sinistra:
