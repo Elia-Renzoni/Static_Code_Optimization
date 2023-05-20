@@ -21,7 +21,6 @@ start:
     daddi r5, r0, password
     daddi r6, r0, nuovo_codice_utente
 func_ricerca_binaria:
-; inizializzazione dei contatori - indice di mezzo
 dadd r7, r1, r2
 ddiv r3, r7, 2
 loop_scorri_elementi_array:
