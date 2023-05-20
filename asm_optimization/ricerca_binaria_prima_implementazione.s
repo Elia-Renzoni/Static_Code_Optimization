@@ -10,10 +10,16 @@ nuovo_codice_utente: .word 56
 indice_sx: .word 0
 indice_dx: .word 7
 indice_mx: .word 0
+esito_ricerca: .word 0
 
               .text
-
-
 start:
-
-ricerca_binaria:
+    lw r1, indice_sx(r0)
+    lw r2, indice_dx(r0)
+    lw r3, indice_mx(r0)
+    lw r4, esito_ricerca(r0)
+    daddi r5, r0, password
+    daddi r6, r0, nuovo_codice_utente
+    
+func_ricerca_binaria:
+  
