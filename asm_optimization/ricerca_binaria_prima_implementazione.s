@@ -28,9 +28,8 @@ loop:
   slt r8, r5, r7                      ; if nuovo_codice_utente < password[indice_mx]
   bne r8, r0, spazio_ricerca_sinistra
   beq r8, r0, spazio_ricerca_destra
-  spazio_ricerca_destra:
-  
-  spazio_ricerca_sinistra:
+  spazio_ricerca_sinistra:            ; continua la ricerca nel sottoarray di sx.
+  spazio_ricerca_destra:              ; continua la ricerca nel sottoarray di dx.
   
   
 end:
