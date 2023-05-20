@@ -29,8 +29,9 @@ loop:
   bne r8, r0, spazio_ricerca_sinistra
   beq r8, r0, spazio_ricerca_destra
   spazio_ricerca_sinistra:            ; continua la ricerca nel sottoarray di sx.
+  dsub r2, r5, 1
   spazio_ricerca_destra:              ; continua la ricerca nel sottoarray di dx.
-  
+  dadd r2, r5, 1
   
 end:
   halt
