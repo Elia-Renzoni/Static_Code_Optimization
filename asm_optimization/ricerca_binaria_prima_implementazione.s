@@ -30,11 +30,18 @@ loop:
   beq r8, r0, spazio_ricerca_destra
   dadd r3, r1, r2
   ddiv r5, r3, 2
+  ; condizione loop
+ 
+ esito_ricerca:
+ slt r8, r5, r7
+ bnez r8, risultato_trovato
+ risultato_trovato:
+ dadd r4, r0, 1
+ sw r4, esito_ricerca(r4)
+  
 spazio_ricerca_sinistra:            ; continua la ricerca nel sottoarray di sx.
   dsub r2, r5, 1
 spazio_ricerca_destra:              ; continua la ricerca nel sottoarray di dx.
   dadd r2, r5, 1
-  
-  
 end:
   halt
