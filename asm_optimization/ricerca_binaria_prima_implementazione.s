@@ -7,8 +7,8 @@
 password: .word 12, 34, 56, 78, 123, 456, 678
 nuovo_codice_utente: .word 56
 indice_sx: .word 0
-indice_dx: .word 7
-indice_mx: .word 0
+indice_dx: .word 6
+indice_mx: .word 3
 esito_ricerca: .word 0
 
                 .text
