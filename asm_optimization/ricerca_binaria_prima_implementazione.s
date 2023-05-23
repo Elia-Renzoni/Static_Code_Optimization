@@ -26,10 +26,10 @@ dadd r6, r1, r2                       ; inizializzazione del contatore indice_mx
 ddiv r3, r7, 2
 loop:
   lw r7, 0(r5)
-  slt r8, r1, r2                           ; if r1 < r2 
-  bnez r8, cond2                           ; if r8 != 0 then cond2
-  cond2: beq r1, r2, cond3                 ; if r1 = r2 then cond3
-  cond3: bne r7, r5, ricerca               ; password[indice_mx] != codice_utente
+  ; slt r8, r1, r2                           ; if r1 < r2 
+  ; bnez r8, cond2                           ; if r8 != 0 then cond2
+  ; cond2: beq r1, r2, cond3                 ; if r1 = r2 then cond3
+  ; cond3: bne r7, r5, ricerca               ; password[indice_mx] != codice_utente
   ricerca:
   slt r9, r5, r7                           ; if nuovo_codice_utente < password[indice_mx]
   bne r9, r0, spazio_ricerca_sinistra
