@@ -31,12 +31,15 @@ loop:
   cond2: beq r1, r2, cond3                 ; if r1 = r2 then cond3
   cond3: bne r7, r5, ricerca               ; password[indice_mx] != codice_utente
   ricerca:
-  slt r9, r5, r7                      ; if nuovo_codice_utente < password[indice_mx]
+  slt r9, r5, r7                           ; if nuovo_codice_utente < password[indice_mx]
   bne r9, r0, spazio_ricerca_sinistra
   beq r9, r0, spazio_ricerca_destra
   dadd r3, r1, r2
   ddiv r5, r3, 2
-  ; condizione loop
+  slt r8, r1, r2
+  bnez r8, cond2
+  cond2: beq r1, r2, cond3
+  cond3: bne r7, r5, loop
   
  esito_ricerca: 
  slt r8, r5, r7
