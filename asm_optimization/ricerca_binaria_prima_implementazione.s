@@ -31,26 +31,29 @@ loop:
   lw r10, 0(r8)
   slt r9, r5, r10                            ; if nuovo_codice_utente < password[indice_mx]
   bnez r9, spazio_ricerca_sinistra
-  spazio_ricerca_sinistra: dsub r2, r3, r7           ; continua la ricerca nel sottoarray di sx. 
+  spazio_ricerca_sinistra: 
+  dsub r2, r3, r7           ; continua la ricerca nel sottoarray di sx. 
   beqz r9, spazio_ricerca_destra
-  spazio_ricerca_destra: dadd r2, r3, r7             ; continua la ricerca nel sottoarray di dx.
+  spazio_ricerca_destra: 
+  dadd r2, r3, r7             ; continua la ricerca nel sottoarray di dx.
   dadd r3, r1, r2
   ddiv r3, r3, r6
   dadd r8, r8, r3
   slt r9, r1, r2
   bnez r9, cond2
-  cond2: beq r1, r2, cond3
-  cond3: bne r10, r5, loop
+  cond2: 
+  beq r1, r2, cond3
+  cond3: 
+  bne r10, r5, loop
   
  esito_ricerca: 
  slt r11, r1, r2
  bnez r11, codice_trovato
  codice_trovato:
- sw r4, 0(r3)
+ sw r4, 0(r7)
  beqz r11, codice_non_trovato
- codice_non_trovato:
+ codice_non_trovato: 
  sw r4, 0(r4)
  
 end:
   halt
-
