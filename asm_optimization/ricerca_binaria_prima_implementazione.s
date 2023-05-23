@@ -38,7 +38,7 @@ loop:
   ddiv r5, r3, 2
   ; condizione loop
   
- esito_ricerca:
+ esito_ricerca: 
  slt r8, r5, r7
  bnez r8, codice_trovato
  codice_trovato:
@@ -46,9 +46,7 @@ loop:
  codice_non_trovato:
  sw r4, 0(r4)
  
-spazio_ricerca_sinistra:            ; continua la ricerca nel sottoarray di sx.
-  dsub r2, r3, 1
-spazio_ricerca_destra:              ; continua la ricerca nel sottoarray di dx.
-  dadd r2, r3, 1
+spazio_ricerca_sinistra: dsub r2, r3, 1           ; continua la ricerca nel sottoarray di sx. 
+spazio_ricerca_destra: dadd r2, r3, 1             ; continua la ricerca nel sottoarray di dx.
 end:
   halt
