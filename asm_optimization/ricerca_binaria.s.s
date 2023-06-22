@@ -5,9 +5,9 @@
 
           .data
 password: .word 12, 37, 64, 57, 89, 95
-codice_utente: .word 120
+codice_utente: .word 57
 indice_sx: .word 0
-indice_dx: .word 0
+indice_dx: .word 5
 indice_mx: .word 0
 divisore: .word  2
 esito_ricerca: .word 1
@@ -20,6 +20,7 @@ start:
       lw r4, esito_ricerca(r0)
       lw r5, codice_utente(r0)
       lw r6, divisore(r0)
+
 ricerca_loop:
       dadd r3, r1, r2
       ddiv r3, r3, r6
@@ -36,9 +37,11 @@ ricerca_loop:
       continua_ricerca:
       slt r9, r5, r7 
       bnez r9, ricerca_in_sx
+      beqz r9, ricerca_in_dx
       ricerca_in_sx:
       dsub r2, r3, r4 ; r4 perché riciclo i registri, in realta mi serve un 1
       beqz r9, ricerca_in_dx
+      j ricerca_loop
       ricerca_in_dx:
       daddi r1, r3 , 1
       j ricerca_loop
