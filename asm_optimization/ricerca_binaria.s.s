@@ -6,12 +6,12 @@
           .data
 
 password:         .word 12, 37, 64, 57, 89, 95
-codice_utente:    .word 34
+codice_utente:    .word 57
 indice_sx:        .word 0
 indice_dx:        .word 5
 indice_mx:        .word 0
-divisore:         .word  2
-esito_ricerca:    .word 1
+divisore:         .word 2
+var_supporto:     .word 1
 
           .text
 
@@ -20,7 +20,7 @@ start:
       lw r1, indice_sx(r0)
       lw r2, indice_dx(r0)
       lw r3, indice_mx(r0)
-      lw r4, esito_ricerca(r0)
+      lw r4, var_supporto(r0)
       lw r5, codice_utente(r0)
       lw r6, divisore(r0)
 
@@ -40,14 +40,15 @@ controlla_uguaglianza:
 
 seconda_validazione:
 
-      bne r7, r5, continua_ricerca              ; if password[mx] != codice_utente then continua_ricerca
+      lw r9, 0(r7)
+      bne r9, r5, continua_ricerca              ; if password[mx] != codice_utente then continua_ricerca
       j fine_ricerca                            ; if password[mx] == codice_utente then fine_ricerca
  
 continua_ricerca:
 
-      slt r9, r5, r7                            ; if codice_utente < password[mx] 
-      bnez r9, ricerca_in_sx                    ; if r9 == 1 then ricerca_in_sx 
-      beqz r9, ricerca_in_dx                    ; if r0 == 0 then ricerca_in_dx
+      slt r10, r5, r9                            ; if codice_utente < password[mx] 
+      bnez r10, ricerca_in_sx                    ; if r9 == 1 then ricerca_in_sx 
+      beqz r10, ricerca_in_dx                    ; if r0 == 0 then ricerca_in_dx
 
 ricerca_in_sx:
 
@@ -71,12 +72,12 @@ secondo_controllo:
 
 trovato:
 
-      sw r4, 0(r4)
+      sw r11, codice_utente(r0)
       j end
 
 non_trovato:
 
-      sw r4, 0(r0)
+      sw r11, 0(r0)
 
 end:
 
