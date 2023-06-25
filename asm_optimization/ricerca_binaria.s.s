@@ -5,7 +5,7 @@
 
           .data
 
-password:         .word 12, 37, 64, 57, 89, 95
+password:         .word 12, 37, 57, 64, 89, 95
 codice_utente:    .word 57
 indice_sx:        .word 0
 indice_dx:        .word 5
@@ -23,12 +23,25 @@ start:
       lw r4, var_supporto(r0)
       lw r5, codice_utente(r0)
       lw r6, divisore(r0)
+      daddi r7, r0, password 
 
 ricerca_loop:
 
       dadd r3, r1, r2                           ; somma l'indice di sinistra e quello di destra
       ddiv r3, r3, r6                           ; calcola l'indice di mezzo -> sx + dx / 2
-      daddi r7, r3, password                    ; carica in r7 il valore dell'elemento di mezzo in posizione r3
+      
+imposta_elemento_mezzo:
+
+      bne r7, r3, imposta_elemento_mezzo2
+      j indice_impostato
+
+imposta_elemento_mezzo2:
+
+      daddi r7, r7, 8
+      j imposta_elemento_mezzo
+
+indice_impostato:
+
       slt r8, r1, r2                            ; scrive in r8 il valore di veritá dell'espressione r1 < r2
       bnez r8, seconda_validazione
       beqz r8, controlla_uguaglianza
@@ -72,12 +85,12 @@ secondo_controllo:
 
 trovato:
 
-      sw r11, codice_utente(r0)
+      lw r11, codice_utente(r0)
       j end
 
 non_trovato:
 
-      sw r11, 0(r0)
+      lw r11, var_supporto(r0)
 
 end:
 
