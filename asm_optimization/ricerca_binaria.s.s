@@ -29,15 +29,16 @@ ricerca_loop:
 
       dadd r3, r1, r2                           ; somma l'indice di sinistra e quello di destra
       ddiv r3, r3, r6                           ; calcola l'indice di mezzo -> sx + dx / 2
-      
+
 imposta_elemento_mezzo:
 
-      bne r7, r3, imposta_elemento_mezzo2
+      bne r12, r3, imposta_elemento_mezzo2
       j indice_impostato
 
 imposta_elemento_mezzo2:
 
       daddi r7, r7, 8
+      daddi r12, r12, 1
       j imposta_elemento_mezzo
 
 indice_impostato:
