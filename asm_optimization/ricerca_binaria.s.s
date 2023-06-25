@@ -5,19 +5,19 @@
 
           .data
 
-password:         .word 12, 37, 57, 64, 89, 95
-codice_utente:    .word 57
-indice_sx:        .word 0
-indice_dx:        .word 5
-indice_mx:        .word 0
-divisore:         .word 2
+password:         .word 12, 37, 57, 64, 89, 95 
+codice_utente:    .word 64    
+indice_sx:        .word 0     
+indice_dx:        .word 5     
+indice_mx:        .word 0     
+divisore:         .word 2     
 var_supporto:     .word 1
 
           .text
 
 start: 
 
-      lw r1, indice_sx(r0)
+      lw r1, indice_sx(r0)                     
       lw r2, indice_dx(r0)
       lw r3, indice_mx(r0)
       lw r4, var_supporto(r0)
@@ -32,13 +32,25 @@ ricerca_loop:
 
 imposta_elemento_mezzo:
 
-      bne r12, r3, imposta_elemento_mezzo2
+      slt r11, r12, r3
+      bnez r11, imposta_elemento_mezzo2
+      beqz r11, ultimo_controllo
+
+ultimo_controllo: 
+
+      bne r12, r3, imposta_elemento_mezzo3
       j indice_impostato
 
 imposta_elemento_mezzo2:
 
       daddi r7, r7, 8
       daddi r12, r12, 1
+      j imposta_elemento_mezzo
+
+imposta_elemento_mezzo3:
+
+      daddi r7, r7, -8
+      daddi r12, r12, -1
       j imposta_elemento_mezzo
 
 indice_impostato:
@@ -96,4 +108,3 @@ non_trovato:
 end:
 
       halt
-      
