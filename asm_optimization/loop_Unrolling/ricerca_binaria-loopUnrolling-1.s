@@ -28,6 +28,8 @@ ricerca_loop:
       dadd r3, r1, r2  ; somma l'indice di sinistra e quello di destra
       ddiv r3, r3, r6  ; calcola l'indice di mezzo -> mx = sx + dx / 2
 
+
+
 imposta_elemento_mezzo:  
 
       lw r5, codice_utente(r0) ; STALLO RISOLTO
@@ -38,7 +40,6 @@ imposta_elemento_mezzo:
 
 ultimo_controllo: ; controlla se r12 é uguale o maggiore di r3
 
-      bne r12, r3, imposta_elemento_mezzo3 ; if r12 != r3 then imposta_elemento_mezzo3
       j indice_impostato  ; if r12 == r3 then indice_impostato
 
 imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
@@ -57,7 +58,6 @@ imposta_elemento_mezzo:
 
 ultimo_controllo: ; controlla se r12 é uguale o maggiore di r3
 
-      bne r12, r3, imposta_elemento_mezzo3 ; if r12 != r3 then imposta_elemento_mezzo3
       j indice_impostato  ; if r12 == r3 then indice_impostato
 
 imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
@@ -65,11 +65,22 @@ imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
       daddi r7, r7, 8 ; i++, incrementa il puntatore 
       daddi r12, r12, 1 ; incrementa il contatore del ciclo 
 
-imposta_elemento_mezzo3: ; imposta l'indice if r12 > r3
+imposta_elemento_mezzo:  
 
-      daddi r7, r7, -8 ; i--, decrementa il puntatore
-      daddi r12, r12, -1 ; decrementa il contatore del ciclo
-      j imposta_elemento_mezzo ; ritorna all'inizio del ciclo
+      lw r5, codice_utente(r0) ; STALLO RISOLTO
+      slt r11, r12, r3  ; if r12 < r3 
+      lw r4, var_supporto(r0)  ; STALLO RISOLTO
+      bnez r11, imposta_elemento_mezzo2 ; if r11 != 0 then imposta_elemento_mezzo2
+      beqz r11, ultimo_controllo ; if r11 == 0 then ultimo_controllo
+
+ultimo_controllo: ; controlla se r12 é uguale o maggiore di r3
+
+      j indice_impostato  ; if r12 == r3 then indice_impostato
+
+imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
+
+      daddi r7, r7, 8 ; i++, incrementa il puntatore 
+      daddi r12, r12, 1 ; incrementa il contatore del ciclo 
 
 indice_impostato: ; indice dell'elemento impostato correttamente
 
