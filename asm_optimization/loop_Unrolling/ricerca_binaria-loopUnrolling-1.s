@@ -47,7 +47,6 @@ imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
       daddi r7, r7, 8 ; i++, incrementa il puntatore 
       daddi r12, r12, 1 ; incrementa il contatore del ciclo 
 
-; LOOP SROLOTOLATO 
 imposta_elemento_mezzo:  
 
       lw r5, codice_utente(r0) ; STALLO RISOLTO

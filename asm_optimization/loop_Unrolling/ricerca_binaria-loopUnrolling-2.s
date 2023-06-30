@@ -31,28 +31,16 @@ ricerca_loop:
 imposta_elemento_mezzo:  
 
       lw r5, codice_utente(r0) ; STALLO RISOLTO
-      slt r11, r12, r3  ; if r12 < r3 
       lw r4, var_supporto(r0)  ; STALLO RISOLTO
-
-imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
-
       daddi r7, r7, 8 ; i++, incrementa il puntatore 
       daddi r12, r12, 1 ; incrementa il contatore del ciclo 
 
-; LOOP SROLOTOLATO 
 imposta_elemento_mezzo:  
 
-      lw r5, codice_utente(r0) ; STALLO RISOLTO
-      slt r11, r12, r3  ; if r12 < r3 
-      lw r4, var_supporto(r0)  ; STALLO RISOLTO
-
-imposta_elemento_mezzo2: ; imposta l'indice if r12 < r3
-
       daddi r7, r7, 8 ; i++, incrementa il puntatore 
       daddi r12, r12, 1 ; incrementa il contatore del ciclo 
 
-
-indice_impostato: ; indice dell'elemento impostato correttamente
+indice_impostato:
 
       slt r8, r1, r2   ; if r1 < r2
       lw r9, 0(r7)  ;  STALLO RISOLTO
